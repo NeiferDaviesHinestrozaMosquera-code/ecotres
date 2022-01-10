@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "955021691201",
+    "project_id": "ecoresiduos-b12c0",
+    "storage_bucket": "ecoresiduos-b12c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955021691201:android:3311beec54a2a897b539c0",
+        "android_client_info": {
+          "package_name": "com.example.ecoresiduos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955021691201-9ii4li1aqq25aa6g92s3h37jr42spjt3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsO5omnNlzik5aQdrZ59AN0rxdZGf8cCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955021691201-9ii4li1aqq25aa6g92s3h37jr42spjt3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
