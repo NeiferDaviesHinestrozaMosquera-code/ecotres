@@ -1,3 +1,4 @@
+import 'package:ecoresiduos/Admin/ia/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:ecoresiduos/services/character.dart';
 import 'package:ecoresiduos/services/datail_page.dart';
@@ -52,10 +53,13 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
         title: Text("Clasificacion de los residuos solidos"),
         backgroundColor: Color.fromARGB(137, 22, 189, 231),
       ),
       body: PageView.builder(
+        
           scrollDirection: Axis.vertical,
           controller: _controller,
           itemCount: characters.length,
@@ -74,6 +78,12 @@ class _ListPageState extends State<ListPage> {
               onTap: () => _goToDetail(currentCharacter),
             );
           }),
+     floatingActionButton: new FloatingActionButton(
+      onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>const UI() ));
+      },
+      
+      child: new Icon(Icons.camera_alt_sharp),),
     );
   }
 }
@@ -163,4 +173,5 @@ class ListItem extends StatelessWidget {
       ),
     );
   }
+ 
 }

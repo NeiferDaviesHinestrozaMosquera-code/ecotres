@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecoresiduos/Admin/adminwork.dart';
 import 'package:ecoresiduos/main_screen.dart';
+import 'package:ecoresiduos/screens/forgotpassword.dart';
 //import 'package:ecoresiduos/screens/home_screen.dart';
 import 'package:ecoresiduos/screens/registration_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,12 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
           if (value!.isEmpty) {
-            return ("Please Enter Your Email");
+            return ("Por favor, introduzca su correo electrónico");
           }
           // reg expression for email validation
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
               .hasMatch(value)) {
-            return ("Please Enter a valid email");
+            return ("Por favor, introduzca una dirección de correo electrónico válida");
           }
           return null;
         },
@@ -54,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Email",
+          hintText: "Correo electronico",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -76,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Password",
+          hintText: "Contraseña",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -106,6 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
               signIn(emailController.text, passwordController.text);
             }
           },
+      
+           
+                    
           child: Text(
             "Login",
             textAlign: TextAlign.center,
@@ -113,7 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
-
+    
+  
+    
+   
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -142,9 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     loginButton,
                     SizedBox(height: 15),
                     Row(
+
                         mainAxisAlignment: MainAxisAlignment.center,
+                        
                         children: <Widget>[
-                          Text("Don't have an account? "),
+                          Text("¿No tiene una cuenta? "),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -153,9 +163,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                       builder: (context) =>
                                           RegistrationScreen()));
                             },
+                          
                             // ignore: prefer_const_constructors
                             child: Text(
-                              "SignUp",
+                              "Inscríbase en",
                               style: TextStyle(
                                   color: Colors.redAccent,
                                   fontWeight: FontWeight.bold,
@@ -180,32 +191,37 @@ class _LoginScreenState extends State<LoginScreen> {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => MainScreen())),
+                   if(_auth.currentUser?.uid == 'Pk9husl0GYcQqeXfvHLl8q0hPif1'){
+                     Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => adminwork())),
+                  } else {
+                     Navigator.of(context).pushReplacement(
+                     MaterialPageRoute(builder: (context) => MainScreen())),
+                    }
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
-          case "invalid-email":
-            errorMessage = "Your email address appears to be malformed.";
+         case "invalid-email":
+            errorMessage = "Su dirección de correo electrónico parece estar malformada.";
 
             break;
           case "wrong-password":
-            errorMessage = "Your password is wrong.";
+            errorMessage = "Tu contraseña es incorrecta.";
             break;
           case "user-not-found":
-            errorMessage = "User with this email doesn't exist.";
+            errorMessage = "El usuario con este correo electrónico no existe.";
             break;
           case "user-disabled":
-            errorMessage = "User with this email has been disabled.";
+            errorMessage = "El usuario con este correo electrónico ha sido desactivado.";
             break;
-          case "too-many-requests":
-            errorMessage = "Too many requests";
+          case "demasiadas solicitudes":
+            errorMessage = "Demasiadas solicitudes";
             break;
-          case "operation-not-allowed":
-            errorMessage = "Signing in with Email and Password is not enabled.";
+          case "operación no permitida":
+            errorMessage = "El inicio de sesión con correo electrónico y contraseña no está habilitado.";
             break;
           default:
-            errorMessage = "An undefined Error happened.";
+            errorMessage = "Se ha producido un error indefinido.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
         print(error.code);

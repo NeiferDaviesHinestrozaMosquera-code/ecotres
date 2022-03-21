@@ -1,14 +1,14 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, unused_import, prefer_const_literals_to_create_immutables
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:ecoresiduos/mapm/mapm.dart';
-import 'package:ecoresiduos/screens/inichome.dart';
+import 'package:ecoresiduos/screens/Novedades.dart';
+import 'package:ecoresiduos/screens/Tics.dart';
 import 'package:flutter/material.dart';
-import 'package:ecoresiduos/screens/account.dart';
-import 'package:ecoresiduos/screens/chat.dart';
-import 'package:ecoresiduos/screens/delete.dart';
+
 import 'package:ecoresiduos/screens/navbar_key.dart';
-import 'package:ecoresiduos/screens/home_screen.dart';
+import 'package:ecoresiduos/screens/account_user.dart';
 import 'package:ecoresiduos/services/list_page.dart';
 import 'package:ecoresiduos/mapm/map_marker.dart';
 
@@ -21,7 +21,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreen extends State<MainScreen> {
   int selectedIndex = 0;
-  final screen =  [InicHomeScreen(),ListPage(),Mapmscreen(title: 'EcoPuntos Yopal',),ChatScreen(),HomeScreen()];
+  final screen =  [ListNoteEco(),ListPage(),Mapmscreen(title: 'EcoPuntos Yopal',),ListNoteTics(),HomeScreen()];
 
   @override 
 Widget build (BuildContext context){

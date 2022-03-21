@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
 
   final data = [
     CardPlanetData(
-      title: "Reciclaje",
+      title: "Reciclar",
       subtitle:
           "Por ti, por mi , por el futuro ¡¡¡Recicla!!!.",
       image: const AssetImage("assets/images/reciclajeloco.png"),
@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
       background: LottieBuilder.asset("assets/animation/bg-1.json"),
     ),
     CardPlanetData(
-      title: "imagine",
+      title: "Reducir",
       subtitle: "Recicla porque el planeta lo vale.",
       image: const AssetImage("assets/images/img-2.png"),
       backgroundColor: Colors.white,
@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
       background: LottieBuilder.asset("assets/animation/bg-2.json"),
     ),
     CardPlanetData(
-      title: "stargaze",
+      title: "Reutilizar",
       subtitle: "No lo arruines; los buenos planetas son dificiles de encontrar.",
       image: const AssetImage("assets/images/img-3.png"),
       backgroundColor: const Color.fromRGBO(71, 59, 117, 1),

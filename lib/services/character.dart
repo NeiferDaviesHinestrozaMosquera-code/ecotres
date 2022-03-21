@@ -38,9 +38,9 @@ final characters = <Character>[
     color: 0xFF000000,
   ),
   Character(
-    title: "Residuos especiales",
+    title: "Residuos aprovechables",
     description:
-        "Es decir que se denomina residuo especial a aquellos residuos que contengan alguna característica de peligrosidad o riesgo para la salud humana, o del ambiente en general.",
+        "Es cualquier material, objeto, sustancia o elemento sólido que no tiene valor de uso para quien lo genere, pero que es susceptible de aprovechamiento para su reincorporación a un proceso productivo.",
     avatar: "assets/images/colorblanco.png",
     color: 0xFF3593e9,
   ),

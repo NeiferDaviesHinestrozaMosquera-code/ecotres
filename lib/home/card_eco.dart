@@ -69,7 +69,7 @@ class CardPlanet extends StatelessWidget {
               const Spacer(flex: 10),
                InkWell(
                     child: const Text(
-                      "Skip",
+                      "Saltar",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                       ),

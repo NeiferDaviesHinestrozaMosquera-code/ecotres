@@ -4,8 +4,11 @@ import 'dart:ui';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:ecoresiduos/mapm/map_marker.dart';
+
 import 'package:flutter_image/flutter_image.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/link.dart';
+
 
 
 const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiZm94aG9tZXJvMiIsImEiOiJja3doYTcyOXAwd2lkMnZuc2w5MGYybWd2In0.GeICrih1_ekYlnJHpQZ3iA';
@@ -27,9 +30,14 @@ class Mapmscreen extends StatefulWidget {
 
   @override
   _MapmscreenState createState() => _MapmscreenState();
+
+  
 }
 
 class _MapmscreenState extends State<Mapmscreen>  with SingleTickerProviderStateMixin{
+
+ 
+
   obtenerUbi() async{
     final geoposition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     setState(() {
@@ -212,6 +220,16 @@ class _MyLocationMarker extends AnimatedWidget {
 }
 
 class _MapItemDetails extends StatelessWidget {
+
+void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print(' could not launch $command');
+    }
+  }
+//aqui
+
   const _MapItemDetails({
     Key? key, 
     required this.mapMarker,
@@ -253,14 +271,15 @@ class _MapItemDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              MaterialButton(
+              RaisedButton(
                 padding: EdgeInsets.zero,
-                onPressed: () => null, 
+                onPressed: () {  customLaunch('tel:+57 3223307932');}, 
                 color: MARKER_COLOR,
                 elevation: 6,
                 child: Text(
-                  'LLAMAR', 
-                  style: TextStyle(fontWeight: FontWeight.bold),),
+                  'LLAMAR / WHATSAPP', 
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
               ),
             ],
           ),

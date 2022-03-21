@@ -48,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               SizedBox(
                 height: 150,
-                child: Image.asset("assets/ecologo.png", fit: BoxFit.contain),
+                //child: Image.asset("assets/ecologo.png", fit: BoxFit.contain),
+                child: Image.network('https://c.tenor.com/4xm1yhzdNqAAAAAi/hola-adios.gif'),
               ),
               // ignore: prefer_const_constructors
               Text(

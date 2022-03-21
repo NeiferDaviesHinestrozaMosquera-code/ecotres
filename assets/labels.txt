@@ -1,0 +1,3 @@
+0 Bolsa Blanca
+1 Bolsa Negra
+2 Bolsa Verde
